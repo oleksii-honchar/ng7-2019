@@ -1,7 +1,6 @@
 {
-  "name": "skillum-wa-landing",
+  "name": "wa",
   "version": "1.2.32",
-  "description": "Skillum web-app Landing",
   "main": "index.js",
   "scripts": {
     "start": "npm run web-app:launch:loc",

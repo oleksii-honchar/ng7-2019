@@ -17,9 +17,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "ngrx-actions": ["./node_modules/ngrx-actions/dist"],
-    },
+    ]
   }
 }

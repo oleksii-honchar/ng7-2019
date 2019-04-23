@@ -1,7 +1,6 @@
 {
   "name": "app-svc",
   "version": "1.0.0",
-  "description": "Skillum app-svc Landing",
   "main": "src/index.js",
   "scripts": {
     "clean:dist": "rm -rf ../../dist/app-svc",
