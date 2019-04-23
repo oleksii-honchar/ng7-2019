@@ -1,0 +1,114 @@
+before_script:
+- whoami
+- ./devops/ci/scripts/check-free-space.sh
+
+stages:
+- build-only
+- bump-version
+- build-and-push
+- deploy-dev
+- deploy-qa
+- deploy-stage
+- deploy-prod
+
+cache:
+  key: master
+  paths:
+  - devops/version
+
+.pipeline-dependency: &pipeline-dependency
+  artifacts:
+    paths:
+    - ./devops/pipeline/
+
+build-only:
+  stage: build-only
+  only:
+  - merge_requests
+  script:
+  - ./devops/scripts/build.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success
+
+bump-version:
+  stage: bump-version
+  only:
+  - master
+  except:
+    variables:
+    - $CI_COMMIT_TAG =~ /.+/
+    - $CI_COMMIT_MESSAGE =~ /\d+\.\d+\.\d+/
+  script:
+  - ./devops/ci/scripts/bump-version.job.sh
+#  - ./devops/ci/scripts/post-jira-comment.sh
+
+build-and-push:
+  <<: *pipeline-dependency
+  stage: build-and-push
+  when: always
+  only:
+  - tags
+  script:
+  - ./devops/scripts/build.sh
+  - ./devops/docker/scripts/push-image.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success
+  - ./devops/docker/scripts/push-latest-image.sh
+
+deploy-dev:
+  <<: *pipeline-dependency
+  before_script:
+  - ./devops/ci/scripts/pipeline-dependency.sh require build-and-push
+  when: on_success
+  stage: deploy-dev
+  environment:
+    name: dev
+    url: http://dev.skillum.pp.ciklum.com
+  only:
+  - tags
+  script:
+  - ./devops/ci/scripts/deploy.dev.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success
+
+deploy-qa:
+  <<: *pipeline-dependency
+  before_script:
+  - ./devops/ci/scripts/pipeline-dependency.sh require deploy-dev
+  when: manual
+  stage: deploy-qa
+  environment:
+    name: qa
+    url: http://qa.skillum.pp.ciklum.com
+  only:
+  - tags
+  script:
+  - ./devops/ci/scripts/deploy.qa.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success
+
+deploy-stage:
+  <<: *pipeline-dependency
+  before_script:
+  - ./devops/ci/scripts/pipeline-dependency.sh require deploy-qa
+  stage: deploy-stage
+  environment:
+    name: stage
+    url: http://stage.skillum.pp.ciklum.com
+  only:
+  - tags
+  when: manual
+  script:
+  - ./devops/ci/scripts/deploy.stage.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success
+
+deploy-prod:
+  <<: *pipeline-dependency
+  before_script:
+  - ./devops/ci/scripts/pipeline-dependency.sh require deploy-stage
+  stage: deploy-prod
+  environment:
+    name: production
+    url: http://skillum.pp.ciklum.com
+  only:
+  - tags
+  when: manual
+  script:
+  - ./devops/ci/scripts/deploy.prod.sh
+  - ./devops/ci/scripts/pipeline-dependency.sh success

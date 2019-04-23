@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{appName}}</title>
+
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="static/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="static/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="static/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="static/assets/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="static/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>{{css}}</style>
+    <link ref="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.29/zone.min.js">
+    {{{styledTags}}}
+
+    {{#each styleUrls}}
+        <link rel="stylesheet" href={{this}}>
+    {{/each}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+</head>
+
+<body>
+{{{html}}}
+<script>
+window.config = {
+    {{#if appBundleSrc}} appBundleSrc: '{{{appBundleSrc}}}', {{/if}}
+    {{#if logLevel}} logLevel: '{{logLevel}}', {{/if}}
+    {{#if pathname}} pathname: '{{pathname}}',{{/if}}
+    {{#if startApp}} startApp: {{startApp}}, {{/if}}
+    {{#if ssr}} ssr: {{ssr}}, {{/if}}
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.29/zone.min.js"></script>
+{{#each scriptUrls}}
+    <script src={{this}}></script>
+{{/each}}
+</body>
+
+</html>

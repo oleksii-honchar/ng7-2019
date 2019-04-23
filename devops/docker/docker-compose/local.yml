@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  skillum-wa-landing:
+    container_name: skillum-wa-landing
+    image: registry.ciklum.net/ciklum/skillum/wa-landing:latest
+    env_file:
+    - ../../config/local.isolated.env
+    volumes:
+    - ../../../:/usr/src/web-app
+    environment:
+    - APP_GROUP_CONFIG
+    ports:
+    - "$APP_SVC_PORT:$APP_SVC_PORT"
+    - "$APP_SVC_DEBUG_PORT:9229"
+    networks:
+    - default

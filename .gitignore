@@ -1,0 +1,15 @@
+.editorconfig
+node_modules/
+npm-debug.log
+.npmrc
+dist/*
+.env
+.git
+coverage
+r&d/assets
+!dist/.gitkeep
+tmp
+.idea
+devops/version/
+logs/*
+.DS_Store
