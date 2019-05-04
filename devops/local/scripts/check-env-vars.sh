@@ -37,7 +37,7 @@ checkVar APP_SVC_PORT
 checkVar APP_SVC_DEBUG_PORT
 checkVar APP_SVC_MOUNT_POINT
 checkVar APP_SVC_MODE
-checkVar SERVICE_HOST
+checkVar SVC_HOST
 checkVar NODE_ENV
 checkVar WATCH_MODE
 checkVar SSR

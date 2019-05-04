@@ -19,7 +19,7 @@
     "lint:fix": "ng lint --fix",
     "test": "ng test",
     "test:coverage": "ng test --coverage",
-    "ng:build": "ng build --deployUrl=/static/"
+    "ng:build": "ng build --deployUrl=./static/"
   },
   "private": true,
   "dependencies": {

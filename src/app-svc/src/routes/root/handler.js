@@ -1,8 +1,16 @@
 import logger from 'libs/logger';
 import { PageParamsFromReqQuery } from './PageParamsFromReqQuery';
-import { ssrSvc } from './ssr-service';
 
+let ssrSvc = null;
 const log = logger.get('/routes/root/all');
+
+// const ttl = 60 * 60
+// const cacheSvc = new NodeCache({
+//   stdTTL: ttl,
+//   checkperiod: ttl * 0.2,
+//   useClones: false,
+// })
+
 
 async function all (req, res, next) {
   if (res.body && res.statusCode === 200) {
@@ -39,6 +47,9 @@ async function all (req, res, next) {
     return next();
   }
 
+  // eslint-disable-next-line
+  ssrSvc = require('./ssr-service').ssrSvc
+
   const pageParams = {
     ...queryParams,
     originalUrl: req.originalUrl,
@@ -50,7 +61,7 @@ async function all (req, res, next) {
         context,
       } = payload;
 
-      if (context.url) {
+      if (context && context.url) {
         // react router redirect all
         const { status = 301 } = context;
         log.warn('App redirected to ->', context.url, ', with status =', status);
@@ -58,7 +69,7 @@ async function all (req, res, next) {
         return next();
       }
 
-      res.statusCode = context.status || 200;
+      res.statusCode = (context && context.status) || 200;
       pageOpts = {
         ...pageOpts,
         html: payload.html,

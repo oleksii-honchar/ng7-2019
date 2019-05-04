@@ -41,7 +41,7 @@ log.info(`[APP_SVC_MODE = ${process.env.APP_SVC_MODE}]`);
 log.info(`[APP_SVC_PORT = ${port}]`);
 log.info(`[NODE_ENV = ${process.env.NODE_ENV}]`);
 log.info(`[LOG_LEVEL = ${process.env.LOG_LEVEL}]`);
-log.info(`[SERVICE_HOST = ${process.env.SERVICE_HOST}]`);
+log.info(`[SVC_HOST = ${process.env.SVC_HOST}]`);
 log.info(`[SSR = ${process.env.SSR}]`);
 
 log.info(`Starting app [${pkg.name}] ...`);

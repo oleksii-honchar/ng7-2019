@@ -4,7 +4,7 @@ import { HttpService } from './HttpService';
 
 const defaultParams = { };
 
-const baseUrl = `${process.env.SERVICE_HOST}/api`;
+const baseUrl = `${process.env.SVC_HOST}/api`;
 
 export class DataService {
   httpClient = null
