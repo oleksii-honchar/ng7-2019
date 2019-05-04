@@ -19,7 +19,7 @@ async function all (req, res, next) {
 
   let pageOpts = {
     originalUrl: req.originalUrl,
-    appName: 'Ciklum',
+    appName: 'ng7 course',
     logLevel: process.env.LOG_LEVEL,
     appId: 'root',
   };
