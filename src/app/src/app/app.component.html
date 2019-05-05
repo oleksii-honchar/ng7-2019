@@ -1,2 +1,18 @@
-<input type="text" [(ngModel)]="name" />
-<p> {{name}} </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <app-warning-alert></app-warning-alert>
+    </div>
+    <div class="col-sm">
+      <app-success-alert></app-success-alert>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <h1>App Cmp</h1>
+      <hr>
+      <!--<div app-servers></div>-->
+      <app-servers></app-servers>
+    </div>
+  </div>
+</div>

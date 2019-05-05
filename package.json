@@ -34,7 +34,7 @@
     "app:install": "bash devops/scripts/install-app.sh"
   },
   "pre-commit": [
-    "web-app:lint"
+    "web-app:lint:fix"
   ],
   "author": "SOL JS Team",
   "license": "MIT",
