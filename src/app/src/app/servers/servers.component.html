@@ -1,3 +1,21 @@
+<button
+  class="btn btn-primary"
+  (click)="toggleDetailsBtn()"
+>
+  Display details
+</button>
+<p [hidden]="!isDetailsBtnClicked">Secret password: tuna</p>
+<br>
+<ul>
+  <li
+    *ngFor="let entry of detailsBtnClickLogs; let idx = index"
+    [ngStyle]="{ backgroundColor: idx > 4 ? 'blue': null }"
+    [ngClass]="{ 'blueText': idx > 4 ? 'blue': null }"
+  >
+    {{ idx }}: {{ entry }}
+  </li>
+</ul>
+<hr>
 <label>Server name</label>
 <input
   type="text"
@@ -19,6 +37,11 @@
 </button>
 <hr/>
 <!--<p>{{ serverCreationStatus }}</p>-->
+<!--<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>-->
+<!--<ng-template #noServer>-->
+  <!--<p>no server was created!</p>-->
+<!--</ng-template>-->
+
 <p *ngIf="serverCreated">{{ serverCreationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+
+<app-server *ngFor="let server of servers"></app-server>
