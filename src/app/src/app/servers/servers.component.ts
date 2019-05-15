@@ -39,6 +39,6 @@ export class ServersComponent implements OnInit {
   toggleDetailsBtn () {
     this.isDetailsBtnClicked = !this.isDetailsBtnClicked;
 
-    this.detailsBtnClickLogs.push(new Date())
+    this.detailsBtnClickLogs.push(new Date());
   }
 }
