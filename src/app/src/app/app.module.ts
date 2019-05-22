@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { RecipeContainerModule } from './modules/recipe-container/recipe-container.module';
-import { ShoppingListContainerModule } from './modules/shopping-list-container/shopping-list-container.module';
+import { RecipesModule } from './modules/recipes/recipes.module';
+import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { ShoppingListContainerModule } from './modules/shopping-list-container/s
     FormsModule,
     CoreModule,
     SharedModule,
-    RecipeContainerModule,
-    ShoppingListContainerModule
+    RecipesModule,
+    ShoppingListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
