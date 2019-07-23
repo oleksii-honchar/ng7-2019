@@ -6,7 +6,7 @@ module.exports = {
   // Use as a custom webpack builder in angular.json
   // https://webpack.js.org/configuration/output/#output-library
   output: {
-    library: 'ng7Test'
+    library: 'ng8Test'
   },
   plugins: [
     new WebpackShellPlugin({
