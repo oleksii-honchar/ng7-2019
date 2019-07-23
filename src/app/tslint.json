@@ -1,46 +1,31 @@
 {
-  "extends": ["tslint-config-airbnb", "tslint-sonarts"],
+  "extends": [
+    "tslint-sonarts",
+    "tslint-config-airbnb"
+  ],
+  "rulesDirectory": [
+    "node_modules/tslint-origin-ordered-imports-rule/dist"
+  ],
+  "rules": {
+    "no-use-before-declare": false,
+    "origin-ordered-imports": [true, "one-blank-line"],
+    "newline-before-return": true,
+    "space-before-function-paren": [true, "never"],
+    "lines-between-class-members": ["error", "always", {
+      "exceptAfterSingleLine": true
+    }],
+    "max-line-length": [true, 120],
+    "ter-max-len": [true, 120],
+    "max-lines": ["error", {
+      "max": 180,
+      "skipBlankLines": false,
+      "skipComments": false
+    }]
+  },
   "linterOptions": {
     "exclude": [
-      "node_modules",
-      "**/*.spec.ts"
+      "**/node_modules/**",
+      "**/dist/**"
     ]
-  },
-  "rules": {
-    "semicolon": [
-      true,
-      "ignore-bound-class-methods"
-    ],
-    "member-access": [
-      true,
-      "check-accessor",
-      "check-parameter-property"
-    ],
-    "member-ordering": [
-      true,
-      {
-        "order": "instance-sandwich"
-      }
-    ],
-    "eofline": true,
-    "no-cookies": false,
-    "export-name": false,
-    "function-name": false,
-    "variable-name": false,
-    "import-spacing": true,
-    "no-invalid-this": true,
-    "trailing-comma": false,
-    "no-invalid-await": false,
-    "prefer-type-cast": false,
-    "no-redundant-jsdoc": false,
-    "no-typeof-undefined": false,
-    "no-relative-imports": false,
-    "no-duplicate-string": false,
-    "no-shadowed-variable": false,
-    "no-non-null-assertion": false,
-    "possible-timing-attack": false,
-    "no-parameter-reassignment": false,
-    "binary-expression-operand-order": true,
-    "no-backbone-get-set-outside-model": false
   }
 }

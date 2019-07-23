@@ -8,7 +8,7 @@ describe('RecipeContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipesComponent ]
+      declarations: [RecipesComponent],
     })
     .compileComponents();
   }));

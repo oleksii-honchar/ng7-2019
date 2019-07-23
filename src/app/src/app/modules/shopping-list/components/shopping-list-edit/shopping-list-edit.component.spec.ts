@@ -8,7 +8,7 @@ describe('ShoppingListEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShoppingListEditComponent ]
+      declarations: [ShoppingListEditComponent],
     })
     .compileComponents();
   }));

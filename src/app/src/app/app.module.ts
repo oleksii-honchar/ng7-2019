@@ -11,7 +11,7 @@ import { ShoppingListModule } from './modules/shopping-list/shopping-list.module
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -20,9 +20,9 @@ import { ShoppingListModule } from './modules/shopping-list/shopping-list.module
     CoreModule,
     SharedModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
