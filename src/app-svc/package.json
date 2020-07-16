@@ -35,7 +35,7 @@
     "faker": "4.1.0",
     "jsdom": "12.1.0",
     "jsonschema": "1.2.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "node-cache": "4.2.0",
     "react-router": "4.3.1",
     "serialize-javascript": "1.6.1",
