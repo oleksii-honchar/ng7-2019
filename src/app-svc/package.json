@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "@ciklum/logan": "0.4.10",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "body-parser": "1.18.3",
     "bunyan": "1.8.12",
     "bunyan-format": "0.2.1",
