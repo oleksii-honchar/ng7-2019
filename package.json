@@ -39,7 +39,7 @@
   "author": "SOL JS Team",
   "license": "MIT",
   "dependencies": {
-    "css-loader": "1.0.0",
+    "css-loader": "6.7.3",
     "env-cmd": "8.0.2",
     "npm-run-all": "4.1.2"
   },
